@@ -1,8 +1,7 @@
 from django.urls import path
-
-from .views import Weatherapp, index
+from .views import Where
 
 urlpatterns = [
-    path('', index, name='index'),
-    path('weather/', Weatherapp.as_view(), name='weather')
+    path('weather/', Where.as_view(), name='where'),
+
 ]

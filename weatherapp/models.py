@@ -1,12 +1,9 @@
-import datetime
-
 from django.db import models
-from django.utils import timezone
+import requests
+from bs4 import BeautifulSoup
 
 # Create your models here.
 
-class TodayWeather(models.Model):
-    where = models.CharField(max_length=180)
+class WeatherModel(models.Model):
+    where = models.CharField(max_length=100)
 
-    def __str__(self):
-        return self.where

@@ -1,19 +1,13 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from django.views.generic import CreateView, ListView
+from django.views.generic.edit import CreateView
+from django.urls import reverse_lazy
 
-from .models import TodayWeather
+from .models import WeatherModel
 
 # Create your views here.
 
-def index(request):
-    return HttpResponse('Hello!')
-
-class Weatherapp(CreateView):
-    template_name = 'weather.html'
-    model = TodayWeather
-    fields = ('where', )
-
-class Today(ListView):
-    template_name = 'today.html'
-    model = TodayWeather
+class Where(CreateView):
+    template_name = 'where.html'
+    model = WeatherModel
+    fields = ('where',)
+    success_url = reverse_lazy('result')
